@@ -12,6 +12,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.UTS_PemrogSeluler_42430003_obi">
         <activity
+            android:name=".InputNilaiActivity"
+            android:exported="false" />
+        <activity
             android:name=".MainActivity"
             android:exported="true">
             <intent-filter>
