@@ -1,65 +1,33 @@
-<?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-android:layout_width="match_parent"
-android:layout_height="match_parent"
-android:orientation="vertical"
-android:padding="20dp"
-android:gravity="center_horizontal">
+package com.example.uts_pemrogseluler_42430003_obi
 
-<TextView
-android:layout_width="wrap_content"
-android:layout_height="wrap_content"
-android:text="INPUT NILAI MAHASISWA"
-android:textSize="20sp"
-android:textStyle="bold"
-android:layout_marginBottom="20dp"/>
+import android.os.Bundle
+import android.widget.Button
+import android.widget.EditText
+import android.widget.TextView
+import androidx.appcompat.app.AppCompatActivity
 
-<EditText
-android:id="@+id/etNama"
-android:layout_width="match_parent"
-android:layout_height="wrap_content"
-android:hint="Nama Mahasiswa"
-android:layout_marginBottom="10dp"/>
+class InputNilaiActivity : AppCompatActivity() {
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        setContentView(R.layout.activity_input_nilai)
 
-<EditText
-android:id="@+id/etNilaiTugas"
-android:layout_width="match_parent"
-android:layout_height="wrap_content"
-android:hint="Nilai Tugas (0-100)"
-android:inputType="number"
-android:layout_marginBottom="10dp"/>
+        val etNama = findViewById<EditText>(R.id.etNama)
+        val etTugas = findViewById<EditText>(R.id.etNilaiTugas)
+        val etUTS = findViewById<EditText>(R.id.etNilaiUTS)
+        val etUAS = findViewById<EditText>(R.id.etNilaiUAS)
+        val btnHitung = findViewById<Button>(R.id.btnHitung)
+        val tvHasil = findViewById<TextView>(R.id.tvHasil)
 
-<EditText
-android:id="@+id/etNilaiUTS"
-android:layout_width="match_parent"
-android:layout_height="wrap_content"
-android:hint="Nilai UTS (0-100)"
-android:inputType="number"
-android:layout_marginBottom="10dp"/>
+        btnHitung.setOnClickListener {
+            val nama = etNama.text.toString()
+            val nTugas = etTugas.text.toString().toDoubleOrNull() ?: 0.0
+            val nUTS = etUTS.text.toString().toDoubleOrNull() ?: 0.0
+            val nUAS = etUAS.text.toString().toDoubleOrNull() ?: 0.0
 
-<EditText
-android:id="@+id/etNilaiUAS"
-android:layout_width="match_parent"
-android:layout_height="wrap_content"
-android:hint="Nilai UAS (0-100)"
-android:inputType="number"
-android:layout_marginBottom="20dp"/>
+            val nilaiAkhir = (nTugas * 0.3) + (nUTS * 0.3) + (nUAS * 0.4)
+            val status = if (nilaiAkhir >= 70) "LULUS" else "GAGAL"
 
-<Button
-android:id="@+id/btnHitung"
-android:layout_width="match_parent"
-android:layout_height="wrap_content"
-android:text="HITUNG NILAI"
-android:backgroundTint="#4CAF50"/>
-
-<TextView
-android:id="@+id/tvHasil"
-android:layout_width="wrap_content"
-android:layout_height="wrap_content"
-android:layout_marginTop="30dp"
-android:text="Hasil akan muncul di sini"
-android:textSize="18sp"
-android:textStyle="bold"
-android:textColor="#2196F3"/>
-
-</LinearLayout>
+            tvHasil.text = "Mahasiswa: $nama \nNilai Akhir: $nilaiAkhir \nStatus: $status"
+        }
+    }
+}
