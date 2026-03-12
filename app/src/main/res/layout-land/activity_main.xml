@@ -3,54 +3,36 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    android:padding="16dp"
-    android:gravity="center"
-    android:background="#F5F5F5">
+    android:padding="24dp"
+    android:gravity="center">
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="UTS PEMROG SELULER - MODE LANDSCAPE"
-        android:textSize="18sp"
+        android:text="UTS PEMROG SELULER"
+        android:textSize="24sp"
         android:textStyle="bold"
-        android:layout_marginBottom="10dp"
-        android:textColor="#333333"/>
+        android:layout_marginBottom="40dp"/>
 
-    <LinearLayout
+    <EditText
+        android:id="@+id/etUsername"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        android:weightSum="2">
+        android:hint="Username Admin"
+        android:layout_marginBottom="16dp"/>
 
-        <EditText
-            android:id="@+id/etUsername"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:hint="Username Admin"
-            android:background="@android:drawable/editbox_background"
-            android:padding="10dp"
-            android:layout_marginEnd="5dp"/>
-
-        <EditText
-            android:id="@+id/etPassword"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:hint="Password"
-            android:inputType="textPassword"
-            android:background="@android:drawable/editbox_background"
-            android:padding="10dp"
-            android:layout_marginStart="5dp"/>
-    </LinearLayout>
+    <EditText
+        android:id="@+id/etPassword"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Password"
+        android:inputType="textPassword"
+        android:layout_marginBottom="32dp"/>
 
     <Button
         android:id="@+id/btnLogin"
-        android:layout_width="250dp"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="15dp"
-        android:text="MASUK KE PANEL"
-        android:backgroundTint="#2196F3"
-        android:textColor="#FFFFFF"/>
+        android:text="MASUK"/>
 
 </LinearLayout>
